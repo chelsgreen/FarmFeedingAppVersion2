@@ -14,9 +14,10 @@ namespace FarmFeedingAppVersion2
         [STAThread]
         static void Main()
         {
+            AnimalManger am = new AnimalManger();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Home());
+            Application.Run(new Home(am));
 
         }
     }

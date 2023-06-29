@@ -13,7 +13,7 @@ namespace FarmFeedingAppVersion2
     public partial class Home : Form
     {
         AnimalManger am;
-        public Home()
+        public Home(AnimalManger am)
         {
             this.am = am;
             InitializeComponent();
@@ -28,10 +28,7 @@ namespace FarmFeedingAppVersion2
 
        
     
-        private void Home_Load(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private void addAnimalbtn_Click_1(object sender, EventArgs e)
         {
@@ -41,10 +38,12 @@ namespace FarmFeedingAppVersion2
             myNewForm.Show();
         }
 
-        //If user selects this then closes the application
+        //If user selects this button the application will then close
         private void exitbtn_Click_1(object sender, EventArgs e)
         {
+
             System.Windows.Forms.Application.Exit();
+
         }
 
         //goes to the Animal Summary Form
@@ -52,6 +51,14 @@ namespace FarmFeedingAppVersion2
         {
             this.Hide();
             AnimalSummary myNewForm = new AnimalSummary(am);
+            myNewForm.Closed += (s, args) => this.Close();
+            myNewForm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AnimalConsumption myNewForm = new AnimalConsumption(am);
             myNewForm.Closed += (s, args) => this.Close();
             myNewForm.Show();
         }

@@ -12,11 +12,19 @@ namespace FarmFeedingAppVersion2
 {
     public partial class AnimalSummary : Form
     {
+        AnimalManger am;
         public AnimalSummary(AnimalManger am)
         {
+            this.am = am;
             InitializeComponent();
         }
 
-      
+        private void homeBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Home myNewForm = new Home(am);
+            myNewForm.Closed += (s, args) => this.Close();
+            myNewForm.Show();
+        }
     }
 }

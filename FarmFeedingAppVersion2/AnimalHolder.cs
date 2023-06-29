@@ -44,6 +44,11 @@ namespace FarmFeedingAppVersion2
 
 
         }
+        public void AddAnimalConsumption(int dailyConsumption)
+        {
+
+            foodConsumedDaily.Add(dailyConsumption);
+        }
 
 
         public int GetSpecies()

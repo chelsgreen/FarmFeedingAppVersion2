@@ -40,10 +40,12 @@ namespace FarmFeedingAppVersion2
             // 
             // addAnimalTitle
             // 
+            this.addAnimalTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.addAnimalTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addAnimalTitle.Location = new System.Drawing.Point(12, 9);
+            this.addAnimalTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.addAnimalTitle.Location = new System.Drawing.Point(242, 9);
             this.addAnimalTitle.Name = "addAnimalTitle";
-            this.addAnimalTitle.Size = new System.Drawing.Size(776, 36);
+            this.addAnimalTitle.Size = new System.Drawing.Size(316, 36);
             this.addAnimalTitle.TabIndex = 0;
             this.addAnimalTitle.Text = "Add Animal";
             this.addAnimalTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -51,17 +53,21 @@ namespace FarmFeedingAppVersion2
             // enterSpecieslbl
             // 
             this.enterSpecieslbl.AutoSize = true;
+            this.enterSpecieslbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.enterSpecieslbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enterSpecieslbl.Location = new System.Drawing.Point(302, 116);
+            this.enterSpecieslbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.enterSpecieslbl.Location = new System.Drawing.Point(292, 98);
             this.enterSpecieslbl.Name = "enterSpecieslbl";
             this.enterSpecieslbl.Size = new System.Drawing.Size(206, 24);
             this.enterSpecieslbl.TabIndex = 1;
             this.enterSpecieslbl.Text = "Please select a species";
-            this.enterSpecieslbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.enterSpecieslbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // speciescbx
             // 
+            this.speciescbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.speciescbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.speciescbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.speciescbx.FormattingEnabled = true;
             this.speciescbx.Items.AddRange(new object[] {
             "Chicken",
@@ -97,6 +103,7 @@ namespace FarmFeedingAppVersion2
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.dateTimePicker1.Location = new System.Drawing.Point(296, 220);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
@@ -105,17 +112,21 @@ namespace FarmFeedingAppVersion2
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label1.Location = new System.Drawing.Point(312, 181);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(167, 24);
             this.label1.TabIndex = 6;
             this.label1.Text = "Select Date of Birth";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AddAnimal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePicker1);

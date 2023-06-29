@@ -27,7 +27,9 @@ namespace FarmFeedingAppVersion2
 
         private void continuebtn_Click(object sender, EventArgs e)
         {
-            //goes to Add Animal Stage2 
+            am.AddAnimalHolder(new AnimalHolder(speciescbx.SelectedIndex, dateTimePicker1.Value));
+
+            //Now goes to that consumption form 
             this.Hide();
             AnimalConsumption myNewForm = new AnimalConsumption(am);
             myNewForm.Closed += (s, args) => this.Close();
@@ -36,9 +38,9 @@ namespace FarmFeedingAppVersion2
 
         private void speciescbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-           
+ 
 
         }
     }
 }
+ 

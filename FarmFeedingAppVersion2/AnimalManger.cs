@@ -11,11 +11,21 @@ namespace FarmFeedingAppVersion2
         private List<AnimalHolder> animalHolders = new List<AnimalHolder>();
         private List<string> animal = new List<string>() { "Chicken", "Sheep", "Pig" };
         private List<float> foodPrices = new List<float>() { 2f, 54.5f, 43 };
+     
         public AnimalManger()
         {
 
 
 
+        }
+        public void AddAnimalHolder(AnimalHolder newAnimalHolder)
+        {
+            animalHolders.Add(newAnimalHolder);
+        }
+        public void AddAnimalConsumption(int dailyConsumption)
+        {
+
+            animalHolders[animalHolders.Count -1].AddAnimalConsumption(dailyConsumption);
         }
         //Calculates the total amount of food Consumed by the animal
         public List<float> TotalAmountOfFood()
@@ -33,7 +43,7 @@ namespace FarmFeedingAppVersion2
 
             return totalConsumption;
         }
-        public string ConsumptionSummary()
+        public string AnimalsConsumptionSummary()
         {
             string summary = "";
             int indexcounter = 0;
@@ -73,10 +83,10 @@ namespace FarmFeedingAppVersion2
             }
             return speciesCost;
         }
-
-        public void AddAnimalHolder(AnimalHolder newAnimal)
+        public string ConsumptionSummary()
         {
-            animalHolders.Add(newAnimal);
+            return animalHolders[animalHolders.Count - 1].AnimalSummary(animal);
+            
         }
     }
 }
