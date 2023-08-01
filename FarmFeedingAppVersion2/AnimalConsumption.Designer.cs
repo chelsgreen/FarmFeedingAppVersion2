@@ -48,7 +48,7 @@ namespace FarmFeedingAppVersion2
             this.addAnimallbl.Name = "addAnimallbl";
             this.addAnimallbl.Size = new System.Drawing.Size(776, 33);
             this.addAnimallbl.TabIndex = 0;
-            this.addAnimallbl.Text = "Add Consumption";
+            this.addAnimallbl.Text = "Add Animal Consumption";
             this.addAnimallbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label1
@@ -56,9 +56,9 @@ namespace FarmFeedingAppVersion2
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.label1.Location = new System.Drawing.Point(149, 59);
+            this.label1.Location = new System.Drawing.Point(14, 55);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(490, 23);
+            this.label1.Size = new System.Drawing.Size(774, 23);
             this.label1.TabIndex = 1;
             this.label1.Text = "Please enter the amount of food consumed per day per grams";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -66,11 +66,11 @@ namespace FarmFeedingAppVersion2
             // addAnimalbtn
             // 
             this.addAnimalbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(255)))), ((int)(((byte)(102)))));
-            this.addAnimalbtn.Location = new System.Drawing.Point(446, 402);
+            this.addAnimalbtn.Location = new System.Drawing.Point(423, 402);
             this.addAnimalbtn.Name = "addAnimalbtn";
-            this.addAnimalbtn.Size = new System.Drawing.Size(75, 23);
+            this.addAnimalbtn.Size = new System.Drawing.Size(98, 23);
             this.addAnimalbtn.TabIndex = 9;
-            this.addAnimalbtn.Text = "Add Animal";
+            this.addAnimalbtn.Text = "Add Consumption";
             this.addAnimalbtn.UseVisualStyleBackColor = false;
             this.addAnimalbtn.Click += new System.EventHandler(this.addAnimalbtn_Click);
             // 
@@ -80,9 +80,9 @@ namespace FarmFeedingAppVersion2
             this.exitbtn.ForeColor = System.Drawing.Color.Black;
             this.exitbtn.Location = new System.Drawing.Point(261, 402);
             this.exitbtn.Name = "exitbtn";
-            this.exitbtn.Size = new System.Drawing.Size(75, 23);
+            this.exitbtn.Size = new System.Drawing.Size(99, 23);
             this.exitbtn.TabIndex = 10;
-            this.exitbtn.Text = "Exit";
+            this.exitbtn.Text = "Cancel";
             this.exitbtn.UseVisualStyleBackColor = false;
             this.exitbtn.Click += new System.EventHandler(this.exitbtn_Click);
             // 
@@ -103,7 +103,6 @@ namespace FarmFeedingAppVersion2
             this.Summaryrtbx.Size = new System.Drawing.Size(260, 252);
             this.Summaryrtbx.TabIndex = 15;
             this.Summaryrtbx.Text = "                                   Summary";
-            this.Summaryrtbx.TextChanged += new System.EventHandler(this.Summaryrtbx_TextChanged);
             // 
             // AnimalConsumption
             // 
@@ -118,8 +117,7 @@ namespace FarmFeedingAppVersion2
             this.Controls.Add(this.label1);
             this.Controls.Add(this.addAnimallbl);
             this.Name = "AnimalConsumption";
-            this.Text = "AddAnimalStage2";
-            this.Load += new System.EventHandler(this.AnimalConsumption_Load);
+            this.Text = "AddAnimalStage2";                 
             ((System.ComponentModel.ISupportInitialize)(this.foodcounternud)).EndInit();
             this.ResumeLayout(false);
 

@@ -40,9 +40,9 @@ namespace FarmFeedingAppVersion2
             // 
             // addAnimalTitle
             // 
-            this.addAnimalTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.addAnimalTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.addAnimalTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addAnimalTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.addAnimalTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.addAnimalTitle.Location = new System.Drawing.Point(242, 9);
             this.addAnimalTitle.Name = "addAnimalTitle";
             this.addAnimalTitle.Size = new System.Drawing.Size(316, 36);
@@ -53,9 +53,9 @@ namespace FarmFeedingAppVersion2
             // enterSpecieslbl
             // 
             this.enterSpecieslbl.AutoSize = true;
-            this.enterSpecieslbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.enterSpecieslbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.enterSpecieslbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enterSpecieslbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.enterSpecieslbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.enterSpecieslbl.Location = new System.Drawing.Point(292, 98);
             this.enterSpecieslbl.Name = "enterSpecieslbl";
             this.enterSpecieslbl.Size = new System.Drawing.Size(206, 24);
@@ -77,7 +77,7 @@ namespace FarmFeedingAppVersion2
             this.speciescbx.Name = "speciescbx";
             this.speciescbx.Size = new System.Drawing.Size(121, 21);
             this.speciescbx.TabIndex = 2;
-            this.speciescbx.SelectedIndexChanged += new System.EventHandler(this.speciescbx_SelectedIndexChanged);
+          
             // 
             // exitAddAnimalbtn
             // 
@@ -86,7 +86,7 @@ namespace FarmFeedingAppVersion2
             this.exitAddAnimalbtn.Name = "exitAddAnimalbtn";
             this.exitAddAnimalbtn.Size = new System.Drawing.Size(75, 23);
             this.exitAddAnimalbtn.TabIndex = 3;
-            this.exitAddAnimalbtn.Text = "Exit";
+            this.exitAddAnimalbtn.Text = "Cancel";
             this.exitAddAnimalbtn.UseVisualStyleBackColor = false;
             this.exitAddAnimalbtn.Click += new System.EventHandler(this.exitAddAnimalbtn_Click);
             // 
@@ -112,9 +112,9 @@ namespace FarmFeedingAppVersion2
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.label1.Location = new System.Drawing.Point(312, 181);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(167, 24);

@@ -10,17 +10,25 @@ namespace FarmFeedingAppVersion2
     {
         private List<AnimalHolder> animalHolders = new List<AnimalHolder>();
         private List<string> animal = new List<string>() { "Chicken", "Sheep", "Pig" };
-        private List<float> foodPrices = new List<float>() { 2f, 54.5f, 43 };
-     
+        //food price per gram
+        private List<float> foodPrices = new List<float>() { 0.00165f, 54.5f, 43 };
+        
         public AnimalManger()
         {
 
 
 
         }
+        public List<AnimalHolder> GetAnimals() 
+        {
+            return animalHolders;
+        }
         public void AddAnimalHolder(AnimalHolder newAnimalHolder)
         {
+           
+            
             animalHolders.Add(newAnimalHolder);
+            animalHolders[animalHolders.Count - 1].GenerateId(animal);
         }
         public void AddAnimalConsumption(int dailyConsumption)
         {
@@ -43,6 +51,12 @@ namespace FarmFeedingAppVersion2
 
             return totalConsumption;
         }
+
+        internal List<AnimalHolder> AddAnimalHolder(AnimalHolder animalHolder, object newAnimalHolder)
+        {
+            throw new NotImplementedException();
+        }
+
         public string AnimalsConsumptionSummary()
         {
             string summary = "";
@@ -73,6 +87,8 @@ namespace FarmFeedingAppVersion2
 
             return "";
         }
+
+        //Calculates the species feed cost per grams
         public List<float> CalculateSpeciesFeedCost()
         {
             List<float> speciesCost = new List<float>() { 0, 0, 0 };
@@ -83,6 +99,8 @@ namespace FarmFeedingAppVersion2
             }
             return speciesCost;
         }
+
+        //Displays weekly food consumption as a Summary 
         public string ConsumptionSummary()
         {
             return animalHolders[animalHolders.Count - 1].AnimalSummary(animal);

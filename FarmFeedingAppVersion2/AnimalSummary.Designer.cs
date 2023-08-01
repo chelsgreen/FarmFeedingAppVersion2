@@ -50,7 +50,7 @@ namespace FarmFeedingAppVersion2
             // 
             this.homeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.homeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.homeBtn.Location = new System.Drawing.Point(703, 415);
+            this.homeBtn.Location = new System.Drawing.Point(362, 404);
             this.homeBtn.Name = "homeBtn";
             this.homeBtn.Size = new System.Drawing.Size(75, 23);
             this.homeBtn.TabIndex = 1;
@@ -60,7 +60,7 @@ namespace FarmFeedingAppVersion2
             // 
             // animalSummaryrtbx
             // 
-            this.animalSummaryrtbx.Location = new System.Drawing.Point(487, 74);
+            this.animalSummaryrtbx.Location = new System.Drawing.Point(251, 63);
             this.animalSummaryrtbx.Name = "animalSummaryrtbx";
             this.animalSummaryrtbx.Size = new System.Drawing.Size(291, 237);
             this.animalSummaryrtbx.TabIndex = 2;

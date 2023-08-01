@@ -22,47 +22,42 @@ namespace FarmFeedingAppVersion2
 
         private void exitbtn_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            // Goes back to previous form
+            this.Hide();
+            AddAnimal myNewForm = new AddAnimal(am);
+            myNewForm.Closed += (s, args) => this.Close();
+            myNewForm.Show();
         }
 
-        private void AnimalConsumption_Load(object sender, EventArgs e)
-        {
 
-        }
-
+        //Adds the Consumption to the animal then takes user back to home screen
         private void addAnimalbtn_Click(object sender, EventArgs e)
         {
             am.AddAnimalConsumption((int)foodcounternud.Value);
-
+            Summaryrtbx.Text= am.ConsumptionSummary();           
             this.Hide();
             Home myNewForm = new Home(am);
             myNewForm.Closed += (s, args) => this.Close();
             myNewForm.Show();
         }
 
+
         private void day1updown_ValueChanged(object sender, EventArgs e)
         {
-            //add funstion so user is unable to enter a null value 
-            foodcounternud.Maximum = 25000;
+            //function so that the user is unable to enter a null value *Change Later*
+            foodcounternud.Maximum = 30000;
             foodcounternud.Minimum = 0;
+            
         }
 
+
+        //Takes user back to home form
         private void homebtn_Click(object sender, EventArgs e)
         {
             this.Hide();
             Home myNewForm = new Home(am);
             myNewForm.Closed += (s, args) => this.Close();
             myNewForm.Show();
-        }
-
-        private void Summaryrtbx_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblsummary_Click(object sender, EventArgs e)
-        {
-           
-        }
+        }            
     }
 }

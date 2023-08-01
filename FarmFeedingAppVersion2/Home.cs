@@ -18,18 +18,17 @@ namespace FarmFeedingAppVersion2
             this.am = am;
             InitializeComponent();
         }
-        //Goes to Add Animal Form
-       
+               
 
+        //closes the application
         private void exitbtn_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
         }
 
-       
-    
+          
      
-
+        // Opens AddAnimal Form
         private void addAnimalbtn_Click_1(object sender, EventArgs e)
         {
             this.Hide();
@@ -38,6 +37,7 @@ namespace FarmFeedingAppVersion2
             myNewForm.Show();
         }
 
+
         //If user selects this button the application will then close
         private void exitbtn_Click_1(object sender, EventArgs e)
         {
@@ -45,6 +45,7 @@ namespace FarmFeedingAppVersion2
             System.Windows.Forms.Application.Exit();
 
         }
+
 
         //goes to the Animal Summary Form
         private void registeredAnimalsbtn_Click_1(object sender, EventArgs e)
@@ -55,12 +56,25 @@ namespace FarmFeedingAppVersion2
             myNewForm.Show();
         }
 
+
+        //Goes to AnimalConsumption Form
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
             AnimalConsumption myNewForm = new AnimalConsumption(am);
             myNewForm.Closed += (s, args) => this.Close();
             myNewForm.Show();
+        }
+
+
+        //Takes user to AnimalFinder Form
+        private void btnsearch_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AnimalFinder myNewForm = new AnimalFinder(am);
+            myNewForm.Closed += (s, args) => this.Close();
+            myNewForm.Show();
+
         }
     }
 }

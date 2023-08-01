@@ -59,6 +59,12 @@
     <Compile Include="AnimalConsumption.Designer.cs">
       <DependentUpon>AnimalConsumption.cs</DependentUpon>
     </Compile>
+    <Compile Include="AnimalFinder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnimalFinder.Designer.cs">
+      <DependentUpon>AnimalFinder.cs</DependentUpon>
+    </Compile>
     <Compile Include="AnimalHolder.cs" />
     <Compile Include="AnimalManger.cs" />
     <Compile Include="AnimalSummary.cs">
@@ -80,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AnimalConsumption.resx">
       <DependentUpon>AnimalConsumption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnimalFinder.resx">
+      <DependentUpon>AnimalFinder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AnimalSummary.resx">
       <DependentUpon>AnimalSummary.cs</DependentUpon>

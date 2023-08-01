@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -17,9 +18,8 @@ namespace FarmFeedingAppVersion2
         int speciescounter = 1;
         private List<float> foodConsumedDaily;
         private string iD;
-        private DateTime dateTime;
-        private List<float> foodPrice = new List<float>() { 0.2f, 1.5f, 2f };
-
+        private DateTime dateTime;       
+        private List<float> foodPrices = new List<float>() { 0.00165f, 54.5f, 43f };
         //methods and functions
 
 
@@ -39,10 +39,9 @@ namespace FarmFeedingAppVersion2
             //initilise foodConsumedDaily List
             foodConsumedDaily = new List<float>();
 
-            //Generate id
-            // GenerateId(speciesList);
+            
 
-
+          
         }
         public void AddAnimalConsumption(int dailyConsumption)
         {
@@ -52,8 +51,18 @@ namespace FarmFeedingAppVersion2
 
 
         public int GetSpecies()
-        {
+        {           
             return species;
+        }
+
+        public DateTime GetDateOfBirth()
+        {
+            return dateOfBirth;
+        }
+
+        public string GetID()
+        {
+            return iD;
         }
 
 
@@ -132,6 +141,32 @@ namespace FarmFeedingAppVersion2
             foodConsumedDaily.Add(dailyconsumption);
         }
 
+        //Displays weekly food comsumption as a summary 
+        public string GetWeeksConsumption()
+        {
+            string consumptionSummary = "";
+            if (foodConsumedDaily.Count >7)
+            {
+
+                int day = 1;
+                for (int consumptionIndex = foodConsumedDaily.Count - 7; consumptionIndex < foodConsumedDaily.Count; consumptionIndex++)
+                {
+                    consumptionSummary += $"Day {day}: {foodConsumedDaily[consumptionIndex]}g\n";
+                    day++;
+                }
+            }
+            else
+            {
+                
+                for (int consumptionIndex =0 ; consumptionIndex < foodConsumedDaily.Count; consumptionIndex++)
+                {
+                    consumptionSummary += $"Day {consumptionIndex + 1}: {foodConsumedDaily[consumptionIndex]}g\n";
+
+                }
+            }
+            
+            return consumptionSummary;
+        }
 
 
 
@@ -139,9 +174,11 @@ namespace FarmFeedingAppVersion2
         public string AnimalSummary(List<string> speciesList)
         {
             //returns a string containing all the infomation the user need to know 
-            string summary = $"Name: {speciesList[species]}\nDOB: {dateOfBirth.ToString("d", (new CultureInfo("es-ES")))}";
-
+            string summary = $"Name: {speciesList[species]}\nDOB: {dateOfBirth.ToString("d", (new CultureInfo("es-ES")))}\n";
+            summary += GetWeeksConsumption();
             return summary;
+           
+           
 
         }
 
