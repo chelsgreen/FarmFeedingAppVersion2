@@ -12,17 +12,25 @@ namespace FarmFeedingAppVersion2
         private List<string> animal = new List<string>() { "Chicken", "Sheep", "Pig" };
         //food price per gram
         private List<float> foodPrices = new List<float>() { 0.00165f, 54.5f, 43 };
-        
+
         public AnimalManger()
         {
 
 
 
         }
+
+        public string GetAnimal(int animalIndex)
+        {
+            return animal[animalIndex];
+        }
         public List<AnimalHolder> GetAnimals() 
         {
             return animalHolders;
         }
+
+
+       //Creates New Animal Holder
         public void AddAnimalHolder(AnimalHolder newAnimalHolder)
         {
            
@@ -30,10 +38,17 @@ namespace FarmFeedingAppVersion2
             animalHolders.Add(newAnimalHolder);
             animalHolders[animalHolders.Count - 1].GenerateId(animal);
         }
-        public void AddAnimalConsumption(int dailyConsumption)
+        public void AddAnimalConsumption(int dailyConsumption,string selectedAnimal)
         {
-
-            animalHolders[animalHolders.Count -1].AddAnimalConsumption(dailyConsumption);
+            if (selectedAnimal.Equals(""))
+            {
+                animalHolders[animalHolders.Count - 1].AddAnimalConsumption(dailyConsumption);
+            }
+            else
+            {
+               animalHolders[FindAnimal(selectedAnimal)].AddAnimalConsumption(dailyConsumption);
+            }
+          
         }
         //Calculates the total amount of food Consumed by the animal
         public List<float> TotalAmountOfFood()
@@ -99,12 +114,60 @@ namespace FarmFeedingAppVersion2
             }
             return speciesCost;
         }
+        public int FindAnimal(string iD)
+        {
+            foreach (var animalHolder in animalHolders)
+            {
+                if (animalHolder.GetID().Equals(iD))
+                {
+                    return animalHolders.IndexOf(animalHolder);
+                }
+            }
+            return -1;
+        }
 
         //Displays weekly food consumption as a Summary 
-        public string ConsumptionSummary()
+        public string ConsumptionSummary(string selectAnimal)
         {
-            return animalHolders[animalHolders.Count - 1].AnimalSummary(animal);
+            if (selectAnimal.Equals(""))
+            {
+                return animalHolders[animalHolders.Count-1].AnimalSummary(animal);
+            }
+            else
+            {
+                return animalHolders[FindAnimal(selectAnimal)].AnimalSummary(animal);
+            }
             
+            
+        }
+        public string MainSummary(string species)
+        {
+            string summarys ="Feeding Summary\n" +
+                $"Species: {species}\n" +
+                $"Total food consumed:\n";
+            float totalconsumed = 0;
+            if(species .Equals("All") )
+            {
+                foreach (var foodconsumed in TotalAmountOfFood())
+                {
+                   totalconsumed += foodconsumed;
+                    
+                }
+            }
+           else
+            {
+                List<float> test = TotalAmountOfFood();
+                int test2 = animal.IndexOf(species);
+                totalconsumed = TotalAmountOfFood()[this.animal.IndexOf(species)];;
+           }
+           
+            
+
+
+
+            summarys += totalconsumed;
+            return summarys;
+
         }
     }
 }

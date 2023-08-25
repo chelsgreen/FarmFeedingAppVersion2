@@ -14,12 +14,13 @@ namespace FarmFeedingAppVersion2
         private int species;
         private bool statusOfAnimal;
         private DateTime dateOfBirth;
-        private int foodConsumed;
+        private float foodConsumed;
         int speciescounter = 1;
         private List<float> foodConsumedDaily;
         private string iD;
         private DateTime dateTime;       
-        private List<float> foodPrices = new List<float>() { 0.00165f, 54.5f, 43f };
+        private List<float> foodPrices = new List<float>() { 0.00165f, 0.0018f, 0.00155f };
+        
         //methods and functions
 
 
@@ -88,26 +89,36 @@ namespace FarmFeedingAppVersion2
 
             float sumConsumption = 0;
             //calculate the last 7 days of food consumption
-
-            //add each daily consumption to sum consumption varilable
-            for (int dailyConsumptionIndex = foodConsumedDaily.Count - 1; dailyConsumptionIndex > foodConsumedDaily.Count - 8; dailyConsumptionIndex--)
+            if (foodConsumedDaily.Count >6)
             {
-                sumConsumption += foodConsumedDaily[dailyConsumptionIndex];
+                for (int dailyConsumptionIndex = foodConsumedDaily.Count - 1; dailyConsumptionIndex > foodConsumedDaily.Count - 8; dailyConsumptionIndex--)
+                {
+                    sumConsumption += foodConsumedDaily[dailyConsumptionIndex];
+                }
             }
-
-
-
+            else
+            {
+                for (int dailyConsumptionIndex = 0; dailyConsumptionIndex  < foodConsumedDaily.Count ; dailyConsumptionIndex++)
+                {
+                    sumConsumption += foodConsumedDaily[dailyConsumptionIndex];
+                }
+            }
+            //add each daily consumption to sum consumption varilable
+          
 
             //return total weekly consumtion
 
             return sumConsumption;
         }
 
-        private float costOfFood(float price)
+        public float costOfFood(float price)
         {
+            //int indexfoodprice = foodPrices.IndexOf();
+            
+            
 
-
-            return CalculateWeeklyConsumption() * price;
+        
+           return CalculateWeeklyConsumption() * price;
         }
 
 

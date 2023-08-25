@@ -59,11 +59,11 @@
     <Compile Include="AnimalConsumption.Designer.cs">
       <DependentUpon>AnimalConsumption.cs</DependentUpon>
     </Compile>
-    <Compile Include="AnimalFinder.cs">
+    <Compile Include="AnimalSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AnimalFinder.Designer.cs">
-      <DependentUpon>AnimalFinder.cs</DependentUpon>
+    <Compile Include="AnimalSearch.Designer.cs">
+      <DependentUpon>AnimalSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="AnimalHolder.cs" />
     <Compile Include="AnimalManger.cs" />
@@ -87,8 +87,8 @@
     <EmbeddedResource Include="AnimalConsumption.resx">
       <DependentUpon>AnimalConsumption.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AnimalFinder.resx">
-      <DependentUpon>AnimalFinder.cs</DependentUpon>
+    <EmbeddedResource Include="AnimalSearch.resx">
+      <DependentUpon>AnimalSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AnimalSummary.resx">
       <DependentUpon>AnimalSummary.cs</DependentUpon>
@@ -104,6 +104,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -117,6 +118,46 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ireland-g023dde866_1280.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rooster-gc439a808d_1280.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lamb-292512_1280.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agriculture-84702_1280.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chicken-3727097_1280.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\birds-5014150_1280.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cow-1839118_1280.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fauna-2713066_1280.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

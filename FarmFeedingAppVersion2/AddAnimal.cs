@@ -36,12 +36,15 @@ namespace FarmFeedingAppVersion2
            
             //Now goes to the AnimalConsumption form 
             this.Hide();
-            AnimalConsumption myNewForm = new AnimalConsumption(am);
+            AnimalConsumption myNewForm = new AnimalConsumption(am,"");
             myNewForm.Closed += (s, args) => this.Close();
             myNewForm.Show();
         }
 
-     
+        private void addAnimalTitle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
  

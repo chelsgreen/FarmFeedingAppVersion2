@@ -55,23 +55,13 @@ namespace FarmFeedingAppVersion2
             myNewForm.Closed += (s, args) => this.Close();
             myNewForm.Show();
         }
-
-
-        //Goes to AnimalConsumption Form
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            AnimalConsumption myNewForm = new AnimalConsumption(am);
-            myNewForm.Closed += (s, args) => this.Close();
-            myNewForm.Show();
-        }
-
+  
 
         //Takes user to AnimalFinder Form
         private void btnsearch_Click(object sender, EventArgs e)
         {
             this.Hide();
-            AnimalFinder myNewForm = new AnimalFinder(am);
+            AnimalSearch myNewForm = new AnimalSearch(am);
             myNewForm.Closed += (s, args) => this.Close();
             myNewForm.Show();
 

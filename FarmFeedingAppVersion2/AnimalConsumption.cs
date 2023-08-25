@@ -13,11 +13,14 @@ namespace FarmFeedingAppVersion2
     public partial class AnimalConsumption : Form
     {
         AnimalManger am;
-        public AnimalConsumption(AnimalManger am)
+        string animalId;
+        public AnimalConsumption(AnimalManger am, string iD)
         {
             this.am = am;
+            this.animalId = iD;
+
             InitializeComponent();
-            Summaryrtbx.Text = am.ConsumptionSummary();
+            Summaryrtbx.Text = am.ConsumptionSummary(iD);
         }
 
         private void exitbtn_Click(object sender, EventArgs e)
@@ -33,8 +36,8 @@ namespace FarmFeedingAppVersion2
         //Adds the Consumption to the animal then takes user back to home screen
         private void addAnimalbtn_Click(object sender, EventArgs e)
         {
-            am.AddAnimalConsumption((int)foodcounternud.Value);
-            Summaryrtbx.Text= am.ConsumptionSummary();           
+            am.AddAnimalConsumption((int)foodcounternud.Value,animalId);
+            Summaryrtbx.Text= am.ConsumptionSummary(animalId);           
             this.Hide();
             Home myNewForm = new Home(am);
             myNewForm.Closed += (s, args) => this.Close();

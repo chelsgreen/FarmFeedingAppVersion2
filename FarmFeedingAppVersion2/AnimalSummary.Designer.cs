@@ -31,7 +31,8 @@ namespace FarmFeedingAppVersion2
         {
             this.label1 = new System.Windows.Forms.Label();
             this.homeBtn = new System.Windows.Forms.Button();
-            this.animalSummaryrtbx = new System.Windows.Forms.RichTextBox();
+            this.animalsumcbx = new System.Windows.Forms.ComboBox();
+            this.rtbSummary = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -39,9 +40,9 @@ namespace FarmFeedingAppVersion2
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(244)))));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(18, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(776, 36);
+            this.label1.Size = new System.Drawing.Size(304, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "Animal Summary";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -58,13 +59,27 @@ namespace FarmFeedingAppVersion2
             this.homeBtn.UseVisualStyleBackColor = false;
             this.homeBtn.Click += new System.EventHandler(this.homeBtn_Click);
             // 
-            // animalSummaryrtbx
+            // animalsumcbx
             // 
-            this.animalSummaryrtbx.Location = new System.Drawing.Point(251, 63);
-            this.animalSummaryrtbx.Name = "animalSummaryrtbx";
-            this.animalSummaryrtbx.Size = new System.Drawing.Size(291, 237);
-            this.animalSummaryrtbx.TabIndex = 2;
-            this.animalSummaryrtbx.Text = "                                  Aniaml Summary";
+            this.animalsumcbx.FormattingEnabled = true;
+            this.animalsumcbx.Items.AddRange(new object[] {
+            "All",
+            "Chicken",
+            "Sheep",
+            "Pig"});
+            this.animalsumcbx.Location = new System.Drawing.Point(100, 48);
+            this.animalsumcbx.Name = "animalsumcbx";
+            this.animalsumcbx.Size = new System.Drawing.Size(121, 21);
+            this.animalsumcbx.TabIndex = 4;
+            this.animalsumcbx.SelectedIndexChanged += new System.EventHandler(this.animalsumcbx_SelectedIndexChanged);
+            // 
+            // rtbSummary
+            // 
+            this.rtbSummary.Location = new System.Drawing.Point(24, 89);
+            this.rtbSummary.Name = "rtbSummary";
+            this.rtbSummary.Size = new System.Drawing.Size(311, 320);
+            this.rtbSummary.TabIndex = 5;
+            this.rtbSummary.Text = "";
             // 
             // AnimalSummary
             // 
@@ -72,7 +87,8 @@ namespace FarmFeedingAppVersion2
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.animalSummaryrtbx);
+            this.Controls.Add(this.rtbSummary);
+            this.Controls.Add(this.animalsumcbx);
             this.Controls.Add(this.homeBtn);
             this.Controls.Add(this.label1);
             this.Name = "AnimalSummary";
@@ -85,6 +101,7 @@ namespace FarmFeedingAppVersion2
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button homeBtn;
-        private System.Windows.Forms.RichTextBox animalSummaryrtbx;
+        private System.Windows.Forms.ComboBox animalsumcbx;
+        private System.Windows.Forms.RichTextBox rtbSummary;
     }
 }

@@ -13,10 +13,17 @@ namespace FarmFeedingAppVersion2
     public partial class AnimalSummary : Form
     {
         AnimalManger am;
+        private DataTable dt;
+        private DataView dv;
+        private string iD;
         public AnimalSummary(AnimalManger am)
         {
             this.am = am;
+            this.iD = "";
+
             InitializeComponent();
+            animalsumcbx.SelectedIndex = 0;
+          
         }
 
         private void homeBtn_Click(object sender, EventArgs e)
@@ -26,5 +33,18 @@ namespace FarmFeedingAppVersion2
             myNewForm.Closed += (s, args) => this.Close();
             myNewForm.Show();
         }
+
+        private void sumlv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void animalsumcbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rtbSummary.Text = am.MainSummary(animalsumcbx.Text);
+        }
     }
 }
+
+
+
