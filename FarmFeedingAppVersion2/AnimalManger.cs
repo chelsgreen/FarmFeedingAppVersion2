@@ -11,7 +11,7 @@ namespace FarmFeedingAppVersion2
         private List<AnimalHolder> animalHolders = new List<AnimalHolder>();
         private List<string> animal = new List<string>() { "Chicken", "Sheep", "Pig" };
         //food price per gram
-        private List<float> foodPrices = new List<float>() { 0.00165f, 54.5f, 43 };
+        private List<float> foodPrices = new List<float>() { 0.00165f, 0.0018f, 0.00155f };
         int speciescount = 0;
       
         public AnimalManger()
@@ -31,29 +31,37 @@ namespace FarmFeedingAppVersion2
         {
             return animalHolders;
         }
-      
-    
 
-       //Creates New Animal Holder
+
+
+        //Creates New Animal Holder
         public void AddAnimalHolder(AnimalHolder newAnimalHolder)
         {
-            
-           
             animalHolders.Add(newAnimalHolder);
-            animalHolders[animalHolders.Count - 1].GenerateId(animal);
-            
+
+            // Pass the speciesList and allAnimals list to the GenerateId method
+            newAnimalHolder.GenerateId(animal, animalHolders);
         }
-        public void AddAnimalConsumption(int dailyConsumption,string selectedAnimal)
+
+        public void AddAnimalConsumption(int dailyConsumption, string selectedAnimal)
         {
-            if (selectedAnimal.Equals(""))
+            int animalIndex = FindAnimal(selectedAnimal);
+
+            if (animalIndex != -1)
             {
-                animalHolders[animalHolders.Count - 1].AddAnimalConsumption(dailyConsumption);
+                animalHolders[animalIndex].AddAnimalConsumption(dailyConsumption);
             }
             else
             {
-               animalHolders[FindAnimal(selectedAnimal)].AddAnimalConsumption(dailyConsumption);
+                // If the selected animal doesn't exist, create a new one
+                int speciesIndex = animal.IndexOf(selectedAnimal);
+                if (speciesIndex != -1)
+                {
+                    AnimalHolder newAnimal = new AnimalHolder(speciesIndex, DateTime.Now); // You can set the date of birth appropriately
+                    newAnimal.AddAnimalConsumption(dailyConsumption);
+                    AddAnimalHolder(newAnimal);
+                }
             }
-          
         }
         //Calculates the total amount of food Consumed by the animal
         public List<float> TotalAmountOfFood()
@@ -147,38 +155,41 @@ namespace FarmFeedingAppVersion2
         }
         public string MainSummary(string species)
         {
-            string summarys ="Feeding Summary\n" +
-                $"Species: {species}\n" +
-                $"Total cost of food:\n"+ 
-                $"Total food consumed:";
-            float totalconsumed = 0;
-            float itemCost = 0f;
+            string dollarSymbol = "$";
+            string summary = "Feeding Summary\n";
 
-            string currentspecie = species;
-            float currentCost = foodPrices[0];
-
-           
-
-            if(species .Equals("All") )
+            if (species.Equals("All"))
             {
-                foreach (var foodconsumed in TotalAmountOfFood())
+                List<float> totalCosts = CalculateSpeciesFeedCost();
+
+                for (int i = 0; i < animal.Count; i++)
                 {
-                   totalconsumed += foodconsumed;
-                    
+                    // Append species name and cost inside the loop
+                    summary += $"{animal[i]}: {dollarSymbol}{totalCosts[i]:F2}\n"; // Display cost in dollars with two decimal places
+                }
+
+                // Calculate and append the total cost to the summary
+                float totalCost = totalCosts.Sum();
+                summary += $"Total food consumed: {dollarSymbol}{totalCost:F2}\n"; // Display total cost in dollars with two decimal places
+            }
+            else
+            {
+                int speciesIndex = animal.IndexOf(species);
+                if (speciesIndex >= 0)
+                {
+                    float cost = CalculateSpeciesFeedCost()[speciesIndex];
+
+                    // Append species name and cost inside the 'else' block
+                    summary += $"{species}: {dollarSymbol}{cost:F2}\n"; // Display cost in dollars with two decimal places
+                }
+                else
+                {
+                    summary += "Species not found.\n";
                 }
             }
-           else
-            {
-                List<float> test = TotalAmountOfFood();
-                int test2 = animal.IndexOf(species);
-                totalconsumed = TotalAmountOfFood()[this.animal.IndexOf(species)];;
-           }
-            
-            
-            summarys += totalconsumed;
-            return summarys;
 
+            return summary;
         }
-       
+
     }
 }

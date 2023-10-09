@@ -133,14 +133,19 @@ namespace FarmFeedingAppVersion2
            return CalculateWeeklyConsumption() * price;
         }
 
-      
 
-        public void GenerateId(List<string> speciesList)
+
+        public void GenerateId(List<string> speciesList, List<AnimalHolder> allAnimals)
         {
-          
-            //store the first letter of species, the first two letters of the breed and as well as the DOB and what species has been entered
-            iD = speciesList[species].Substring(0, 2).ToLower() + dateOfBirth.Year + speciescounter;
-            //generate an unique Id by adding thoes values together
+            // Store the first letter of species, the first two letters of the breed, and as well as the DOB
+            string speciesAbbreviation = speciesList[species].Substring(0, 2).ToLower();
+            string yearOfBirth = dateOfBirth.Year.ToString();
+
+            // Get the count of animals of the same species in the list
+            int speciesCount = allAnimals.Count(a => a.GetSpecies() == species);
+
+            // Append the species count and original animal holder ID to make it unique
+            iD = speciesAbbreviation + yearOfBirth +"#"+ speciesCount + iD;
         }
 
 
