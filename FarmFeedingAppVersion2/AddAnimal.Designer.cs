@@ -52,7 +52,6 @@ namespace FarmFeedingAppVersion2
             this.addAnimalTitle.TabIndex = 0;
             this.addAnimalTitle.Text = "Add Animal";
             this.addAnimalTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.addAnimalTitle.Click += new System.EventHandler(this.addAnimalTitle_Click);
             // 
             // enterSpecieslbl
             // 
@@ -68,18 +67,21 @@ namespace FarmFeedingAppVersion2
             // 
             // speciescbx
             // 
+            this.speciescbx.AutoCompleteCustomSource.AddRange(new string[] {
+            "Chicken"});
             this.speciescbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.speciescbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.speciescbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.speciescbx.FormattingEnabled = true;
             this.speciescbx.Items.AddRange(new object[] {
             "Chicken",
-            "Sheep",
-            "Pig"});
+            "Pig",
+            "Sheep"});
             this.speciescbx.Location = new System.Drawing.Point(168, 165);
             this.speciescbx.Name = "speciescbx";
             this.speciescbx.Size = new System.Drawing.Size(121, 21);
             this.speciescbx.TabIndex = 2;
+            this.speciescbx.SelectedIndexChanged += new System.EventHandler(this.speciescbx_SelectedIndexChanged);
             // 
             // exitAddAnimalbtn
             // 
@@ -149,6 +151,7 @@ namespace FarmFeedingAppVersion2
             this.Controls.Add(this.addAnimalTitle);
             this.Name = "AddAnimal";
             this.Text = "AddAnimal";
+            this.Load += new System.EventHandler(this.AddAnimal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.SheepImage1)).EndInit();
             this.ResumeLayout(false);
 

@@ -18,6 +18,7 @@ namespace FarmFeedingAppVersion2
         {
             this.am = am;
             InitializeComponent();
+  
         }
 
 
@@ -41,9 +42,16 @@ namespace FarmFeedingAppVersion2
             myNewForm.Show();
         }
 
-        private void addAnimalTitle_Click(object sender, EventArgs e)
+        private void speciescbx_SelectedIndexChanged(object sender, EventArgs e)
         {
+           
 
+        }
+
+        private void AddAnimal_Load(object sender, EventArgs e)
+        {
+            speciescbx.SelectedIndex = 0;
+           ;
         }
     }
 }

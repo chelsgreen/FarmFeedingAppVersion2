@@ -12,31 +12,36 @@ namespace FarmFeedingAppVersion2
         private List<string> animal = new List<string>() { "Chicken", "Sheep", "Pig" };
         //food price per gram
         private List<float> foodPrices = new List<float>() { 0.00165f, 54.5f, 43 };
-
+        int speciescount = 0;
+      
         public AnimalManger()
         {
 
 
 
         }
+        
 
         public string GetAnimal(int animalIndex)
         {
+            
             return animal[animalIndex];
         }
         public List<AnimalHolder> GetAnimals() 
         {
             return animalHolders;
         }
-
+      
+    
 
        //Creates New Animal Holder
         public void AddAnimalHolder(AnimalHolder newAnimalHolder)
         {
-           
             
+           
             animalHolders.Add(newAnimalHolder);
             animalHolders[animalHolders.Count - 1].GenerateId(animal);
+            
         }
         public void AddAnimalConsumption(int dailyConsumption,string selectedAnimal)
         {
@@ -144,8 +149,16 @@ namespace FarmFeedingAppVersion2
         {
             string summarys ="Feeding Summary\n" +
                 $"Species: {species}\n" +
-                $"Total food consumed:\n";
+                $"Total cost of food:\n"+ 
+                $"Total food consumed:";
             float totalconsumed = 0;
+            float itemCost = 0f;
+
+            string currentspecie = species;
+            float currentCost = foodPrices[0];
+
+           
+
             if(species .Equals("All") )
             {
                 foreach (var foodconsumed in TotalAmountOfFood())
@@ -160,14 +173,12 @@ namespace FarmFeedingAppVersion2
                 int test2 = animal.IndexOf(species);
                 totalconsumed = TotalAmountOfFood()[this.animal.IndexOf(species)];;
            }
-           
             
-
-
-
+            
             summarys += totalconsumed;
             return summarys;
 
         }
+       
     }
 }

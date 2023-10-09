@@ -15,14 +15,14 @@ namespace FarmFeedingAppVersion2
         private bool statusOfAnimal;
         private DateTime dateOfBirth;
         private float foodConsumed;
-        int speciescounter = 1;
+        private int speciescounter ;
+        
         private List<float> foodConsumedDaily;
         private string iD;
         private DateTime dateTime;       
         private List<float> foodPrices = new List<float>() { 0.00165f, 0.0018f, 0.00155f };
-        
-        //methods and functions
 
+        //methods and functions
 
 
         //constructs an animal holder object
@@ -39,20 +39,33 @@ namespace FarmFeedingAppVersion2
 
             //initilise foodConsumedDaily List
             foodConsumedDaily = new List<float>();
+           
 
-            
 
-          
+
         }
         public void AddAnimalConsumption(int dailyConsumption)
         {
 
             foodConsumedDaily.Add(dailyConsumption);
+          
+
+        }
+        //delete
+        public int SpeciesCounter 
+        { get { return speciescounter; }
+            set { speciescounter = value; }
+        }
+        //deleteeeeeeeeeeeee
+        public void Count()
+        {
+            speciescounter++;
         }
 
 
         public int GetSpecies()
-        {           
+        {
+           
             return species;
         }
 
@@ -63,6 +76,7 @@ namespace FarmFeedingAppVersion2
 
         public string GetID()
         {
+        
             return iD;
         }
 
@@ -78,8 +92,6 @@ namespace FarmFeedingAppVersion2
             return CalculateWeeklyConsumption() * costPerKg;
             Console.WriteLine();
         }
-
-
 
 
 
@@ -121,10 +133,11 @@ namespace FarmFeedingAppVersion2
            return CalculateWeeklyConsumption() * price;
         }
 
-
+      
 
         public void GenerateId(List<string> speciesList)
         {
+          
             //store the first letter of species, the first two letters of the breed and as well as the DOB and what species has been entered
             iD = speciesList[species].Substring(0, 2).ToLower() + dateOfBirth.Year + speciescounter;
             //generate an unique Id by adding thoes values together
@@ -144,7 +157,7 @@ namespace FarmFeedingAppVersion2
             return status;
         }
 
-
+      
 
         //adds the foodConsumedDaily to the dailyconsumption
         public void AddFoodConsumed(float dailyconsumption)
@@ -185,7 +198,7 @@ namespace FarmFeedingAppVersion2
         public string AnimalSummary(List<string> speciesList)
         {
             //returns a string containing all the infomation the user need to know 
-            string summary = $"Name: {speciesList[species]}\nDOB: {dateOfBirth.ToString("d", (new CultureInfo("es-ES")))}\n";
+            string summary = $"Name: {speciesList[species]}\nID: {iD}\nDOB: {dateOfBirth.ToString("d", (new CultureInfo("es-ES")))}\n";
             summary += GetWeeksConsumption();
             return summary;
            
