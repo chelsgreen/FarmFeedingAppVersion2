@@ -12,8 +12,8 @@ namespace FarmFeedingAppVersion2
 {
     public partial class Home : Form
     {
-        AnimalManger am;
-        public Home(AnimalManger am)
+        AnimalManager am;
+        public Home(AnimalManager am)
         {
             this.am = am;
             InitializeComponent();

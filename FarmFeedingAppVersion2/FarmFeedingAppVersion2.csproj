@@ -66,7 +66,7 @@
       <DependentUpon>AnimalSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="AnimalHolder.cs" />
-    <Compile Include="AnimalManger.cs" />
+    <Compile Include="AnimalManager.cs" />
     <Compile Include="AnimalSummary.cs">
       <SubType>Form</SubType>
     </Compile>

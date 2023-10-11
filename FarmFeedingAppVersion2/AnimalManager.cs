@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FarmFeedingAppVersion2
 {
-    public class AnimalManger
+    public class AnimalManager
     {
         private List<AnimalHolder> animalHolders = new List<AnimalHolder>();
         private List<string> animal = new List<string>() { "Chicken", "Sheep", "Pig" };
@@ -14,7 +14,7 @@ namespace FarmFeedingAppVersion2
         private List<float> foodPrices = new List<float>() { 0.00165f, 0.0018f, 0.00155f };
         int speciescount = 0;
 
-        public AnimalManger()
+        public AnimalManager()
         {
 
 
@@ -118,6 +118,7 @@ namespace FarmFeedingAppVersion2
             }
             return speciesCost;
         }
+
         public int FindAnimal(string iD)
         {
             foreach (var animalHolder in animalHolders)
@@ -159,10 +160,10 @@ namespace FarmFeedingAppVersion2
                 {
                     float cost = totalFoodConsumed[i] * foodPrices[i];
 
-                    // Append species name and cost inside the loop
-                    summary += $"{animal[i]}: {dollarSymbol}{cost:F2}\n"; // Display cost in dollars with two decimal places
+                   
+                    summary += $"{animal[i]}: {dollarSymbol}{cost:F2}\n"; // Display the cost in dollars with two decimal places
 
-                    // Calculate and append the total food consumed to summarycost
+                    // Calculate and append the total food consumed to summaryconsumption
                     totalconsumed += totalFoodConsumed[i];
                 }
             }
@@ -176,7 +177,7 @@ namespace FarmFeedingAppVersion2
                     // Append species name and cost inside the 'else' block
                     summary += $"{species}: {dollarSymbol}{cost:F2}\n"; // Display cost in dollars with two decimal places
 
-                    // Calculate and append the total food consumed to summarycost
+                    // Calculates and adds the total food consumed to summaryconsumption
                     totalconsumed = TotalAmountOfFood()[speciesIndex];
                 }
                 else

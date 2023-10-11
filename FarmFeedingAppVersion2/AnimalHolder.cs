@@ -46,21 +46,17 @@ namespace FarmFeedingAppVersion2
         }
         public void AddAnimalConsumption(int dailyConsumption)
         {
-
             foodConsumedDaily.Add(dailyConsumption);
-          
 
+            // Update the status based on the new data
+            UpdateStatus();
         }
-        //delete
-        public int SpeciesCounter 
-        { get { return speciescounter; }
-            set { speciescounter = value; }
-        }
-        //deleteeeeeeeeeeeee
-        public void Count()
+
+        public List<float> GetFoodConsumedDaily()
         {
-            speciescounter++;
+            return foodConsumedDaily;
         }
+
 
 
         public int GetSpecies()
@@ -79,6 +75,21 @@ namespace FarmFeedingAppVersion2
         
             return iD;
         }
+
+        public void UpdateStatus()           
+        {
+            float someThreshold = 1000.0f;
+            // Check a condition to determine the status, for example, based on food consumption
+            if (CalculateWeeklyConsumption() < someThreshold)
+            {
+                statusOfAnimal = false; // Set the status to false (unhealthy or sick)
+            }
+            else
+            {
+                statusOfAnimal = true; // Set the status to true (alive or healthy)
+            }
+        }
+
 
 
         public float CalculateTotalCost(float costPerKg)
@@ -152,17 +163,22 @@ namespace FarmFeedingAppVersion2
 
 
         // Determines that the status is alive for animal at start of program
-        public string Animalalive()
+        public string AnimalStatus()
         {
-            string status = "Status: Dead\n";
-            if (statusOfAnimal == true)
+            string status = "Status: ";
+            if (statusOfAnimal)
             {
-                status = "Status: Alive\n";
+                status += "Alive";
+            }
+            else
+            {
+                status += "Unhealthy or Sick";
             }
             return status;
         }
 
-      
+
+
 
         //adds the foodConsumedDaily to the dailyconsumption
         public void AddFoodConsumed(float dailyconsumption)

@@ -12,9 +12,9 @@ namespace FarmFeedingAppVersion2
 {
     public partial class AddAnimal : Form
     {
-        AnimalManger am;
+        AnimalManager am;
 
-        public AddAnimal(AnimalManger am)
+        public AddAnimal(AnimalManager am)
         {
             this.am = am;
             InitializeComponent();

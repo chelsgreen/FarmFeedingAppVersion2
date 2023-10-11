@@ -12,19 +12,20 @@ namespace FarmFeedingAppVersion2
 {
     public partial class AnimalSearch : Form
     {
-       
+
         private DataTable dt;
         private DataView dv;
         private string iD;
 
-        AnimalManger am;
-        public AnimalSearch(AnimalManger am)
+
+        AnimalManager am;
+        public AnimalSearch(AnimalManager am)
         {
-            
+
             this.am = am;
             this.iD = "";
             InitializeComponent();
-            if (tbxSearch.Text == "") 
+            if (tbxSearch.Text == "")
             //If the Search textbox is blank then do the following
             {
                 tbxSearch.Focus();
@@ -33,28 +34,33 @@ namespace FarmFeedingAppVersion2
             listvSearch.View = View.Details;
             listvSearch.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
-            listvSearch.Columns.Add("ID",60);
-            listvSearch.Columns.Add("Breed",60);
-            listvSearch.Columns.Add("DOB",155);
-            
-           
+            listvSearch.Columns.Add("ID", 60);
+            listvSearch.Columns.Add("Breed", 60);
+            listvSearch.Columns.Add("DOB", 155);
+            listvSearch.Columns.Add("Health Status", 120);
+
+
 
             dt = new DataTable();
             dt.Columns.Add("ID");
             dt.Columns.Add("Breed");
             dt.Columns.Add("DOB");
+            dt.Columns.Add("status");
 
+            List<AnimalHolder> animalHolders = this.am.GetAnimals();
+
+            foreach (var animalHolder in animalHolders)
+            {
+                // Determine the health status based on food consumption
+                string healthStatus = GetHealthStatus(animalHolder.GetSpecies(), animalHolder.CalculateWeeklyConsumption(), animalHolder.GetFoodConsumedDaily());
+
+
+                dt.Rows.Add(animalHolder.GetID(), am.GetAnimal(animalHolder.GetSpecies()), animalHolder.GetDateOfBirth().ToLongDateString(), healthStatus);
+            }
 
 
             // Getting DataList from Animal Manager
-            List<AnimalHolder> animalHolders = this.am.GetAnimals();
 
-            foreach (var animalHolder in animalHolders)   
-            {
-
-                dt.Rows.Add(animalHolder.GetID(),am.GetAnimal(animalHolder.GetSpecies()),animalHolder.GetDateOfBirth().ToLongDateString());
-
-            }
             //Fill Datatable
             dv = new DataView(dt);
 
@@ -63,16 +69,25 @@ namespace FarmFeedingAppVersion2
 
         }
 
+      
+
         private void PopulateListView(DataView dv)
         {
             listvSearch.Items.Clear();
             foreach (DataRow row in dv.ToTable().Rows)
             {
-                listvSearch.Items.Add(new ListViewItem(new String[] { row[0].ToString(), row[1].ToString(), row[2].ToString()  }));
+                // Create a ListViewItem
+                ListViewItem item = new ListViewItem(row[0].ToString());
+                item.SubItems.Add(row[1].ToString());
+                item.SubItems.Add(row[2].ToString());
+                item.SubItems.Add(row[3].ToString()); // Display the health status
+
+                // Add the ListViewItem to the ListView
+                listvSearch.Items.Add(item);
             }
         }
 
-        private void exitafbtn_Click(object sender, EventArgs e)
+            private void exitafbtn_Click(object sender, EventArgs e)
         {
             //Goes to home screen
             this.Hide();
@@ -84,7 +99,7 @@ namespace FarmFeedingAppVersion2
         private void updatebtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-           AnimalConsumption myNewForm = new AnimalConsumption(am,iD);
+            AnimalConsumption myNewForm = new AnimalConsumption(am, iD);
             myNewForm.Closed += (s, args) => this.Close();
             myNewForm.Show();
         }
@@ -98,14 +113,67 @@ namespace FarmFeedingAppVersion2
 
         private void listvSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
-            iD = listvSearch.Items[0].Text;
-            
+            if (listvSearch.SelectedItems.Count > 0)
+            {
+                iD = listvSearch.SelectedItems[0].SubItems[0].Text;
+            }
         }
+
 
         private void tbxSearch_TextChanged(object sender, EventArgs e)
         {
             dv.RowFilter = string.Format("Breed Like '%{0}%'", tbxSearch.Text); // Code from https://www.youtube.com/watch?v=cycavkXug5U
             PopulateListView(dv);
         }
+        private string GetHealthStatus(int species, float weeklyConsumption, List<float> foodConsumedDaily)
+        {
+            // Define thresholds for healthy consumption based on species
+            float minHealthy;
+            float maxHealthy;
+
+            if (foodConsumedDaily.Count < 7)
+            {
+                return "Not Enough Data"; // Display this status when less than 7 days of data are available
+            }
+
+            // Set healthy thresholds based on species
+            switch (species)
+            {
+                case 0: // Chickens
+                    minHealthy = 840; // Minimum healthy threshold
+                    maxHealthy = 980; // Maximum healthy threshold
+                    break;
+                case 1: // Sheep
+                    minHealthy = 15890; // Minimum healthy threshold
+                    maxHealthy = 22260; // Maximum healthy threshold
+                    break;
+                case 2: // Pig
+                    minHealthy = 3500; // Minimum healthy threshold
+                    maxHealthy = 5600; // Maximum healthy threshold
+                    break;
+                default:
+                    // Handle other species as needed
+                    minHealthy = 0;
+                    maxHealthy = 0;
+                    break;
+            }
+
+            // Determine health status
+            if (weeklyConsumption >= minHealthy && weeklyConsumption <= maxHealthy)
+            {
+                return "Healthy";
+            }
+            else
+            {
+                return "Unhealthy";
+            }
+        }
+
+
+
+
+
     }
 }
+    
+

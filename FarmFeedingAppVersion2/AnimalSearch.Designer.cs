@@ -72,6 +72,7 @@ namespace FarmFeedingAppVersion2
             this.listvSearch.Size = new System.Drawing.Size(280, 300);
             this.listvSearch.TabIndex = 2;
             this.listvSearch.UseCompatibleStateImageBehavior = false;
+           
             this.listvSearch.SelectedIndexChanged += new System.EventHandler(this.listvSearch_SelectedIndexChanged);
             // 
             // exitafbtn

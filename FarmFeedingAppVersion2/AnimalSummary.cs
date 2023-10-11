@@ -12,11 +12,11 @@ namespace FarmFeedingAppVersion2
 {
     public partial class AnimalSummary : Form
     {
-        AnimalManger am;
+        AnimalManager am;
         private DataTable dt;
         private DataView dv;
         private string iD;
-        public AnimalSummary(AnimalManger am)
+        public AnimalSummary(AnimalManager am)
         {
             this.am = am;
             this.iD = "";

@@ -12,9 +12,9 @@ namespace FarmFeedingAppVersion2
 {
     public partial class AnimalConsumption : Form
     {
-        AnimalManger am;
+        AnimalManager am;
         string animalId;
-        public AnimalConsumption(AnimalManger am, string iD)
+        public AnimalConsumption(AnimalManager am, string iD)
         {
             this.am = am;
             this.animalId = iD;
