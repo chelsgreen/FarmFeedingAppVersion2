@@ -9,7 +9,7 @@ namespace FarmFeedingAppVersion2
     public class AnimalManager
     {
         private List<AnimalHolder> animalHolders = new List<AnimalHolder>();
-        private List<string> animal = new List<string>() { "Chicken", "Sheep", "Pig" };
+        private List<string> animal = new List<string>() { "Chicken", "Pig", "Sheep" };
         //food price per gram
         private List<float> foodPrices = new List<float>() { 0.00165f, 0.0018f, 0.00155f };
         int speciescount = 0;
