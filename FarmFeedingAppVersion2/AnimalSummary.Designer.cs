@@ -33,6 +33,10 @@ namespace FarmFeedingAppVersion2
             this.homeBtn = new System.Windows.Forms.Button();
             this.animalsumcbx = new System.Windows.Forms.ComboBox();
             this.rtbSummary = new System.Windows.Forms.RichTextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -51,7 +55,7 @@ namespace FarmFeedingAppVersion2
             // 
             this.homeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.homeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.homeBtn.Location = new System.Drawing.Point(362, 404);
+            this.homeBtn.Location = new System.Drawing.Point(713, 415);
             this.homeBtn.Name = "homeBtn";
             this.homeBtn.Size = new System.Drawing.Size(75, 23);
             this.homeBtn.TabIndex = 1;
@@ -67,9 +71,9 @@ namespace FarmFeedingAppVersion2
             "Chicken",
             "Sheep",
             "Pig"});
-            this.animalsumcbx.Location = new System.Drawing.Point(100, 48);
+            this.animalsumcbx.Location = new System.Drawing.Point(24, 48);
             this.animalsumcbx.Name = "animalsumcbx";
-            this.animalsumcbx.Size = new System.Drawing.Size(121, 21);
+            this.animalsumcbx.Size = new System.Drawing.Size(311, 21);
             this.animalsumcbx.TabIndex = 4;
             this.animalsumcbx.SelectedIndexChanged += new System.EventHandler(this.animalsumcbx_SelectedIndexChanged);
             // 
@@ -81,18 +85,41 @@ namespace FarmFeedingAppVersion2
             this.rtbSummary.TabIndex = 5;
             this.rtbSummary.Text = "";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::FarmFeedingAppVersion2.Properties.Resources.birds_5014150_1280;
+            this.pictureBox1.InitialImage = global::FarmFeedingAppVersion2.Properties.Resources.birds_5014150_1280;
+            this.pictureBox1.Location = new System.Drawing.Point(476, 48);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(186, 159);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::FarmFeedingAppVersion2.Properties.Resources.cow_1839118_1280;
+            this.pictureBox2.Location = new System.Drawing.Point(476, 243);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(189, 166);
+            this.pictureBox2.TabIndex = 7;
+            this.pictureBox2.TabStop = false;
+            // 
             // AnimalSummary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.rtbSummary);
             this.Controls.Add(this.animalsumcbx);
             this.Controls.Add(this.homeBtn);
             this.Controls.Add(this.label1);
             this.Name = "AnimalSummary";
             this.Text = "AnimalSummary";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -103,5 +130,7 @@ namespace FarmFeedingAppVersion2
         private System.Windows.Forms.Button homeBtn;
         private System.Windows.Forms.ComboBox animalsumcbx;
         private System.Windows.Forms.RichTextBox rtbSummary;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

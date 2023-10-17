@@ -61,6 +61,8 @@ namespace FarmFeedingAppVersion2
             Home myNewForm = new Home(am);
             myNewForm.Closed += (s, args) => this.Close();
             myNewForm.Show();
-        }            
+        }
+
+      
     }
 }

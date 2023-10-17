@@ -96,8 +96,10 @@ namespace FarmFeedingAppVersion2
             myNewForm.Show();
         }
 
+        //This takes the user to the animal consumption screen when they are ready to add consumption to the animal again
         private void updatebtn_Click(object sender, EventArgs e)
         {
+            
             this.Hide();
             AnimalConsumption myNewForm = new AnimalConsumption(am, iD);
             myNewForm.Closed += (s, args) => this.Close();
@@ -127,29 +129,29 @@ namespace FarmFeedingAppVersion2
         }
         private string GetHealthStatus(int species, float weeklyConsumption, List<float> foodConsumedDaily)
         {
-            // Define thresholds for healthy consumption based on species
+            // Define ranges for healthy consumption based on species
             float minHealthy;
             float maxHealthy;
 
             if (foodConsumedDaily.Count < 7)
             {
-                return "Not Enough Data"; // Display this status when less than 7 days of data are available
+                return "Not Enough Data"; // This display when less than 7 days of data are available because not enough data is there to determine whether the animal is healthy or not
             }
 
-            // Set healthy thresholds based on species
+            // Set the ranges for what is classes as healthy for each species healthy 
             switch (species)
             {
                 case 0: // Chickens
-                    minHealthy = 840; // Minimum healthy threshold
-                    maxHealthy = 980; // Maximum healthy threshold
+                    minHealthy = 840; // Minimum healthy for a Chicken
+                    maxHealthy = 980; // Maximum healthy for a Chicken
                     break;
                 case 1: // Sheep
-                    minHealthy = 15890; // Minimum healthy threshold
-                    maxHealthy = 22260; // Maximum healthy threshold
+                    minHealthy = 15890; // Minimum healthy for a Sheep
+                    maxHealthy = 22260; // Maximum healthy for a Sheep
                     break;
                 case 2: // Pig
-                    minHealthy = 3500; // Minimum healthy threshold
-                    maxHealthy = 5600; // Maximum healthy threshold
+                    minHealthy = 3500; // Minimum healthy for a Pig
+                    maxHealthy = 5600; // Maximum healthy for a Pig
                     break;
                 default:
                     // Handle other species as needed

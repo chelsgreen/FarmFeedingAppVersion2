@@ -105,6 +105,7 @@ namespace FarmFeedingAppVersion2
             this.Summaryrtbx.Size = new System.Drawing.Size(260, 252);
             this.Summaryrtbx.TabIndex = 15;
             this.Summaryrtbx.Text = "                                   Summary";
+      
             // 
             // pictureOfChicken
             // 

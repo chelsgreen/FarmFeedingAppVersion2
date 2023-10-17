@@ -40,9 +40,6 @@ namespace FarmFeedingAppVersion2
             //initilise foodConsumedDaily List
             foodConsumedDaily = new List<float>();
            
-
-
-
         }
         public void AddAnimalConsumption(int dailyConsumption)
         {
@@ -54,6 +51,7 @@ namespace FarmFeedingAppVersion2
 
         public List<float> GetFoodConsumedDaily()
         {
+            //Gets the food consumed by an animal
             return foodConsumedDaily;
         }
 
@@ -61,7 +59,7 @@ namespace FarmFeedingAppVersion2
 
         public int GetSpecies()
         {
-           
+           //Gets the species the user inputed
             return species;
         }
 
@@ -94,12 +92,8 @@ namespace FarmFeedingAppVersion2
 
         public float CalculateTotalCost(float costPerKg)
         {
-            // calculate cost per kg
-
-
-
-
-            //time cost per kg by animals weekly consumption
+          
+            //Program Multiplys the cost per kg by animals weekly consumption
             return CalculateWeeklyConsumption() * costPerKg;
             Console.WriteLine();
         }
@@ -135,12 +129,9 @@ namespace FarmFeedingAppVersion2
         }
 
         public float costOfFood(float price)
-        {
-            //int indexfoodprice = foodPrices.IndexOf();
-            
-            
+        {                      
 
-        
+        //Calculates the weeklyconsumption by the price of the animals consumption
            return CalculateWeeklyConsumption() * price;
         }
 
@@ -158,27 +149,7 @@ namespace FarmFeedingAppVersion2
             // Append the species count and original animal holder ID to make it unique
             iD = speciesAbbreviation + yearOfBirth +"#"+ speciesCount + iD;
         }
-
-
-
-
-        // Determines that the status is alive for animal at start of program
-        public string AnimalStatus()
-        {
-            string status = "Status: ";
-            if (statusOfAnimal)
-            {
-                status += "Alive";
-            }
-            else
-            {
-                status += "Unhealthy or Sick";
-            }
-            return status;
-        }
-
-
-
+     
 
         //adds the foodConsumedDaily to the dailyconsumption
         public void AddFoodConsumed(float dailyconsumption)
@@ -216,15 +187,21 @@ namespace FarmFeedingAppVersion2
 
 
 
-        public string AnimalSummary(List<string> speciesList)
+        public string AnimalSummary(List<string> speciesList, float costPerKg)
         {
-            //returns a string containing all the infomation the user need to know 
+            // Calculate the total amount of food consumed
+            float totalFoodConsumed = CalculateWeeklyConsumption();
+
+            // Calculate the total cost based on the provided cost per kg
+            float totalCost = totalFoodConsumed * costPerKg;
+
+            // Create the summary string
             string summary = $"Name: {speciesList[species]}\nID: {iD}\nDOB: {dateOfBirth.ToString("d", (new CultureInfo("es-ES")))}\n";
             summary += GetWeeksConsumption();
-            return summary;
-           
-           
+            summary += $"\nTotal Amount of food consumed: {totalFoodConsumed}g\n";
+            summary += $"Total Cost ${totalCost}\n";
 
+            return summary;
         }
 
 
