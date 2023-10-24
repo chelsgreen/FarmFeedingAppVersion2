@@ -8,22 +8,28 @@ namespace FarmFeedingAppVersion2
 {
     public class AnimalManager
     {
+        //attributes or fields
         private List<AnimalHolder> animalHolders = new List<AnimalHolder>();
-        private List<string> animal = new List<string>() { "Chicken", "Pig", "Sheep" };
+        private readonly List<string> ANIMAL = new List<string>() { "Chicken", "Pig", "Sheep" };
+
         //food price per gram
-        private List<float> foodPrices = new List<float>() { 0.00165f, 0.0018f, 0.00155f };
+        private readonly List<float> FOODPRICES = new List<float>() { 0.00165f, 0.0018f, 0.00155f };
         int speciescount = 0;
+
+        //methods and functions
         
+         //constructs an animal manager object
         public AnimalManager()
         {
 
         }
-
+        //Gets animal name
         public string GetAnimal(int animalIndex)
         {
 
-            return animal[animalIndex];
+            return ANIMAL[animalIndex];
         }
+        //returns the selected animal to the animal holder class
         public List<AnimalHolder> GetAnimals()
         {
             return animalHolders;
@@ -31,16 +37,16 @@ namespace FarmFeedingAppVersion2
 
 
 
-        //Creates New Animal Holder
+        //Creates New ANIMAL Holder
         public void AddAnimalHolder(AnimalHolder newAnimalHolder)
         {
             animalHolders.Add(newAnimalHolder);
 
             // Pass the speciesList and allAnimals list to the GenerateId method
-            newAnimalHolder.GenerateId(animal, animalHolders);
+            newAnimalHolder.GenerateId(ANIMAL, animalHolders);
         }
 
-        //Adds the animals consumption to the animal
+        //Adds the animals consumption to the ANIMAL
         public void AddAnimalConsumption(int dailyConsumption, string selectedAnimal)
         {
             if (selectedAnimal.Equals(""))
@@ -53,7 +59,7 @@ namespace FarmFeedingAppVersion2
             }
 
         }
-        //Calculates the total amount of food Consumed by the animal
+        //Calculates the total amount of food Consumed by the ANIMAL
         public List<float> TotalAmountOfFood()
         {
 
@@ -61,10 +67,10 @@ namespace FarmFeedingAppVersion2
 
 
 
-            foreach (AnimalHolder animal in animalHolders)
+            foreach (AnimalHolder ANIMAL in animalHolders)
             {
                 //adds the total consumption to the weekly consumption
-                totalConsumption[animal.GetSpecies()] += animal.CalculateWeeklyConsumption();
+                totalConsumption[ANIMAL.GetSpecies()] += ANIMAL.CalculateWeeklyConsumption();
             }
 
             return totalConsumption;
@@ -83,7 +89,7 @@ namespace FarmFeedingAppVersion2
             foreach (float speciesConsumption in TotalAmountOfFood())
             {
                 //adds to list a the increase by one
-                summary += $"{animal[indexcounter]}, {speciesConsumption}\n";
+                summary += $"{ANIMAL[indexcounter]}, {speciesConsumption}\n";
                 indexcounter++;
             }
             //returns a summary of the total amount of the food consumed 
@@ -96,7 +102,7 @@ namespace FarmFeedingAppVersion2
         {
             //compare average consumption with its daily consumption
 
-            // if animal consumption is less than its average consumption return true else retrun false
+            // if ANIMAL consumption is less than its average consumption return true else retrun false
             return true;
         }
         // returns a string containing id, food consumption within the last 30 day and the cost of the food
@@ -113,12 +119,12 @@ namespace FarmFeedingAppVersion2
 
             for (int i = 0; i < speciesCost.Count; i++)
             {
-                speciesCost[i] += TotalAmountOfFood()[i] * foodPrices[i];
+                speciesCost[i] += TotalAmountOfFood()[i] * FOODPRICES[i];
             }
             return speciesCost;
         }
 
-        //Finds the Animal based off its ID
+        //Finds the ANIMAL based off its ID
         public int FindAnimal(string iD)
         {
             foreach (var animalHolder in animalHolders)
@@ -136,14 +142,14 @@ namespace FarmFeedingAppVersion2
         {
             if (selectAnimal.Equals(""))
             {
-                return animalHolders[animalHolders.Count - 1].AnimalSummary(animal, foodPrices[animalHolders[animalHolders.Count - 1].GetSpecies()]);
+                return animalHolders[animalHolders.Count - 1].AnimalSummary(ANIMAL, FOODPRICES[animalHolders[animalHolders.Count - 1].GetSpecies()]);
             }
             else
             {
                 int animalIndex = FindAnimal(selectAnimal);
                 if (animalIndex >= 0)
                 {
-                    return animalHolders[animalIndex].AnimalSummary(animal, foodPrices[animalHolders[animalIndex].GetSpecies()]);
+                    return animalHolders[animalIndex].AnimalSummary(ANIMAL, FOODPRICES[animalHolders[animalIndex].GetSpecies()]);
                 }
                 else
                 {
@@ -153,7 +159,7 @@ namespace FarmFeedingAppVersion2
         }
         public string MainSummary(string species)
         {
-            
+            //returns a summary of all the data collected and returns to the user in a string
             string summary = "Feeding Summary\nTotal Costs of:\n";
             float totalconsumed = 0;
             string summaryconsumption = "Total Amount of food consumed:\n";
@@ -162,12 +168,12 @@ namespace FarmFeedingAppVersion2
             {
                 List<float> totalFoodConsumed = TotalAmountOfFood();
 
-                for (int i = 0; i < animal.Count; i++)
+                for (int i = 0; i < ANIMAL.Count; i++)
                 {
-                    float cost = totalFoodConsumed[i] * foodPrices[i];
+                    float cost = totalFoodConsumed[i] * FOODPRICES[i];
 
                    
-                    summary += $"{animal[i]}: ${cost:F2}\n"; // Display the cost in dollars with two decimal places
+                    summary += $"{ANIMAL[i]}: ${cost:F2}\n"; // Display the cost in dollars with two decimal places
 
                     // Calculate and append the total food consumed to summaryconsumption
                     totalconsumed += totalFoodConsumed[i];
@@ -175,12 +181,12 @@ namespace FarmFeedingAppVersion2
             }
             else
             {
-                int speciesIndex = animal.IndexOf(species);
+                int speciesIndex = ANIMAL.IndexOf(species);
                 if (speciesIndex >= 0)
                 {
-                    float cost = TotalAmountOfFood()[speciesIndex] * foodPrices[speciesIndex];
+                    float cost = TotalAmountOfFood()[speciesIndex] * FOODPRICES[speciesIndex];
 
-                    // Append species name and cost inside the 'else' block
+                    // Append species name and cost inside the 'else'   
                     summary += $"{species}: ${cost:F2}\n"; // Display cost in dollars with two decimal places
 
                     // Calculates and adds the total food consumed to summaryconsumption

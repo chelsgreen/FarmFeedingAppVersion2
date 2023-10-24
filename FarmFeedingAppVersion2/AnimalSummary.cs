@@ -12,10 +12,12 @@ namespace FarmFeedingAppVersion2
 {
     public partial class AnimalSummary : Form
     {
+        //attributes or fields
         AnimalManager am;
         private DataTable dt;
         private DataView dv;
         private string iD;
+
         public AnimalSummary(AnimalManager am)
         {
             this.am = am;
@@ -25,20 +27,20 @@ namespace FarmFeedingAppVersion2
             animalsumcbx.SelectedIndex = 0;
           
         }
+        //Functions
 
+        //when user presses home button
         private void homeBtn_Click(object sender, EventArgs e)
         {
+            //takesm user back to home screen
             this.Hide();
             Home myNewForm = new Home(am);
             myNewForm.Closed += (s, args) => this.Close();
             myNewForm.Show();
         }
 
-        private void sumlv_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
-
+        //returns the values of the summary in the combo box 
         private void animalsumcbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             rtbSummary.Text = am.MainSummary(animalsumcbx.Text);

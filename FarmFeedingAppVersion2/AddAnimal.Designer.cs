@@ -81,7 +81,7 @@ namespace FarmFeedingAppVersion2
             this.speciescbx.Name = "speciescbx";
             this.speciescbx.Size = new System.Drawing.Size(121, 21);
             this.speciescbx.TabIndex = 2;
-            this.speciescbx.SelectedIndexChanged += new System.EventHandler(this.speciescbx_SelectedIndexChanged);
+            
             // 
             // exitAddAnimalbtn
             // 

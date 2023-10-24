@@ -12,6 +12,7 @@ namespace FarmFeedingAppVersion2
 {
     public partial class Home : Form
     {
+        //attributes or fields
         AnimalManager am;
         public Home(AnimalManager am)
         {
@@ -19,6 +20,7 @@ namespace FarmFeedingAppVersion2
             InitializeComponent();
         }
                
+        //Functions 
 
         //closes the application
         private void exitbtn_Click(object sender, EventArgs e)

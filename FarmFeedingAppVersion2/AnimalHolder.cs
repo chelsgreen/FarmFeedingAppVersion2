@@ -15,8 +15,7 @@ namespace FarmFeedingAppVersion2
         private bool statusOfAnimal;
         private DateTime dateOfBirth;
         private float foodConsumed;
-        private int speciescounter ;
-        
+        private int speciescounter ;        
         private List<float> foodConsumedDaily;
         private string iD;
         private DateTime dateTime;       
@@ -65,12 +64,13 @@ namespace FarmFeedingAppVersion2
 
         public DateTime GetDateOfBirth()
         {
+            //Gets the dateofbirth of the Species
             return dateOfBirth;
         }
 
         public string GetID()
         {
-        
+        //creates the ID from the species, dateOfBirth and number of species
             return iD;
         }
 
@@ -204,7 +204,7 @@ namespace FarmFeedingAppVersion2
             return summary;
         }
 
-
+        //returns a sting collecting all the values stored in the private variables
         public string ToString()
         {
             return "";

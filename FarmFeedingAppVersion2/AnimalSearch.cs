@@ -12,13 +12,14 @@ namespace FarmFeedingAppVersion2
 {
     public partial class AnimalSearch : Form
     {
-
+        //attributes or fields
         private DataTable dt;
         private DataView dv;
         private string iD;
 
 
         AnimalManager am;
+
         public AnimalSearch(AnimalManager am)
         {
 
@@ -38,8 +39,6 @@ namespace FarmFeedingAppVersion2
             listvSearch.Columns.Add("Breed", 60);
             listvSearch.Columns.Add("DOB", 155);
             listvSearch.Columns.Add("Health Status", 120);
-
-
 
             dt = new DataTable();
             dt.Columns.Add("ID");
@@ -63,8 +62,6 @@ namespace FarmFeedingAppVersion2
 
             //Fill Datatable
             dv = new DataView(dt);
-
-
             PopulateListView(dv);
 
         }
@@ -105,14 +102,8 @@ namespace FarmFeedingAppVersion2
             myNewForm.Closed += (s, args) => this.Close();
             myNewForm.Show();
         }
-
-
-
-        private void searchtbx_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+   
+        //when the values change inside the list view search
         private void listvSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listvSearch.SelectedItems.Count > 0)
@@ -160,11 +151,12 @@ namespace FarmFeedingAppVersion2
                     break;
             }
 
-            // Determine health status
+            // Determine health status of the species
             if (weeklyConsumption >= minHealthy && weeklyConsumption <= maxHealthy)
             {
                 return "Healthy";
             }
+
             else
             {
                 return "Unhealthy";

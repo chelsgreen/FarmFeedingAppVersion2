@@ -42,16 +42,11 @@ namespace FarmFeedingAppVersion2
             myNewForm.Show();
         }
 
-        private void speciescbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-
-        }
-
+       //Loads the AddAnimal Form
         private void AddAnimal_Load(object sender, EventArgs e)
         {
             speciescbx.SelectedIndex = 0;
-           ;
+           
         }
     }
 }

@@ -12,6 +12,7 @@ namespace FarmFeedingAppVersion2
 {
     public partial class AnimalConsumption : Form
     {
+        //attributes or fields
         AnimalManager am;
         string animalId;
         public AnimalConsumption(AnimalManager am, string iD)
@@ -22,7 +23,9 @@ namespace FarmFeedingAppVersion2
             InitializeComponent();
             Summaryrtbx.Text = am.ConsumptionSummary(iD);
         }
+        //Functions
 
+        //action of the exit button
         private void exitbtn_Click(object sender, EventArgs e)
         {
             // Goes back to previous form
@@ -62,7 +65,6 @@ namespace FarmFeedingAppVersion2
             myNewForm.Closed += (s, args) => this.Close();
             myNewForm.Show();
         }
-
-      
+    
     }
 }
